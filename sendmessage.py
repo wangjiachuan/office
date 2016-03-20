@@ -49,9 +49,9 @@ class DailyRegister(object):
 
         #assert "网易免费邮箱 - 中国第一大电子邮件服务商" in browser1.title
       
-        browser1.find_element_by_id("userNameIpt").send_keys("W93126721@163.com")
+        browser1.find_element_by_id("userNameIpt").send_keys("mailaddress@163.com")
         time.sleep(2)
-        browser1.find_element_by_id("pwdPlaceholder").send_keys("198039")
+        browser1.find_element_by_id("pwdPlaceholder").send_keys("passwd")
         time.sleep(2)
         browser1.find_element_by_id("btnSubmit").send_keys(Keys.RETURN)
         print ("---"*10)
@@ -125,9 +125,9 @@ class DailyRegister(object):
 
         
 
-        elem = self.browser.find_element_by_id("email").send_keys("wangjc_os@sari.ac.cn")
+        elem = self.browser.find_element_by_id("email").send_keys("mailaddress")
         time.sleep(3)
-        elem = self.browser.find_element_by_id("password").send_keys("jhl1981")
+        elem = self.browser.find_element_by_id("password").send_keys("passwd")
         time.sleep(3)
 
         self.browser.find_element_by_xpath("//input[contains(@class,'btn-sub')]").send_keys(Keys.RETURN)
@@ -185,9 +185,9 @@ class DailyRegister(object):
         browser1 = webdriver.Firefox()
         browser1.get("http://email.163.com/")
       
-        browser1.find_element_by_id("userNameIpt").send_keys("W93126721@163.com")
+        browser1.find_element_by_id("userNameIpt").send_keys("mailaddress@163.com")
         time.sleep(5)
-        browser1.find_element_by_id("pwdPlaceholder").send_keys("198039")
+        browser1.find_element_by_id("pwdPlaceholder").send_keys("passwd")
         time.sleep(5)
         browser1.find_element_by_id("btnSubmit").send_keys(Keys.RETURN)
         print ("---"*10)
