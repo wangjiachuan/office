@@ -10,7 +10,6 @@ import traceback
 import os,time
 import random
 
-
 class DailyRegister(object):
     browser = None
     mail_pass = ""
@@ -169,9 +168,6 @@ class DailyRegister(object):
         except WebDriverException as e1:
             print (e1)
             browser1.close()
-
-
-    
 
     def run_timer(self):
         print("current time is :{0}:{1}".format(time.localtime().tm_hour,time.localtime().tm_min))
