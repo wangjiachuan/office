@@ -213,7 +213,7 @@ class DailyRegister(object):
                         {'hour':12,'min_start':22,'min_end':39},]
         return self.time_verify(register_list)
             
-    def run_main(self):
+    def main(self):
         for i in range(50000):
             print('-'*30)
             print("cycle is :{0}".format(i))
@@ -226,4 +226,4 @@ class DailyRegister(object):
 if __name__ == '__main__':
 
     myRegister = DailyRegister()
-    myRegister.run_main()
+    myRegister.main()
