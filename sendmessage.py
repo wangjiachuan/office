@@ -40,21 +40,22 @@ class DailyRegister(object):
             return False
         
     def internet_does_not_forbid_register(self):
-        return True  
-        browser1 = webdriver.Firefox()
-        browser1.get("http://email.163.com/")
+        return True
 
-        #assert "网易免费邮箱 - 中国第一大电子邮件服务商" in browser1.title
+        try:
+            browser1 = webdriver.Firefox()
+            browser1.get("http://email.163.com/")
+
+            #assert "网易免费邮箱 - 中国第一大电子邮件服务商" in browser1.title
       
-        browser1.find_element_by_id("userNameIpt").send_keys("W93126721@163.com")
-        time.sleep(5)
-        browser1.find_element_by_id("pwdPlaceholder").send_keys(self.mail_pass)
-        time.sleep(5)
-        browser1.find_element_by_id("btnSubmit").send_keys(Keys.RETURN)
-        print ("---"*10)
-        time.sleep(9) # Let the page load
-
-        try:   
+            browser1.find_element_by_id("userNameIpt").send_keys("W93126721@163.com")
+            time.sleep(5)
+            browser1.find_element_by_id("pwdPlaceholder").send_keys(self.mail_pass)
+            time.sleep(5)
+            browser1.find_element_by_id("btnSubmit").send_keys(Keys.RETURN)
+            print ("---"*10)
+            time.sleep(9) # Let the page load
+   
             browser1.find_element_by_xpath("//span[contains(.,'写 信')]")
             browser1.close()
             print ("---"*10)
@@ -124,15 +125,15 @@ class DailyRegister(object):
                 text = "Leave  successfully at "+str(time.localtime().tm_hour)+":"+str(time.localtime().tm_min)
                 print(text)
                 self.send_message_by_mail(text)
-        except NoSuchElementException as e:
+        except NoSuchElementException:
             print ("cann't find the element!!!")
             self.browser.close()
             return None
-        except WebDriverException as e1:
+        except WebDriverException:
             print("webdriver crushed!!!")
             self.browser.close()
             return None
-        except TimeoutException as e2:
+        except TimeoutException:
             self.browser.close()
             print("time out with webdriver!!!")
             return None
