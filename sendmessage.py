@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#coding=utf-8
 import sys
 #reload(sys)
 #sys.setdefaultencoding('utf-8')
@@ -24,9 +24,7 @@ class DailyRegister(object):
         print("week:Today is {}".format(work_time))
         #spring holiday
         #spring_holiday = [7,8,9,10,11,12,13,14,15]
-        #spring_holiday = [0]
         #if time.localtime().tm_mday in spring_holiday:
-        #    print("spring holiday")
         #    print("spring holiay:Today is {}".format(time.localtime().tm_mday))
         #    return False
         #spring holiday
@@ -49,13 +47,13 @@ class DailyRegister(object):
 
         #assert "网易免费邮箱 - 中国第一大电子邮件服务商" in browser1.title
       
-        browser1.find_element_by_id("userNameIpt").send_keys("mailaddress@163.com")
-        time.sleep(2)
-        browser1.find_element_by_id("pwdPlaceholder").send_keys("passwd")
-        time.sleep(2)
+        browser1.find_element_by_id("userNameIpt").send_keys("W93126721@163.com")
+        time.sleep(5)
+        browser1.find_element_by_id("pwdPlaceholder").send_keys("198039")
+        time.sleep(5)
         browser1.find_element_by_id("btnSubmit").send_keys(Keys.RETURN)
         print ("---"*10)
-        time.sleep(5) # Let the page load
+        time.sleep(9) # Let the page load
 
         try:   
             browser1.find_element_by_xpath("//span[contains(.,'写 信')]")
@@ -79,31 +77,18 @@ class DailyRegister(object):
 
 
     def should_perform_register(self):
-        if self.internet_is_ok == False:
-            return self.time_to_register()
+        return self.time_to_register()
 
-        else:
-            if self.internet_does_not_forbid_register():
-                return self.time_to_register()
 
 
     def should_perform_leave(self):
-        if self.internet_is_ok == False:
-            return self.time_to_leave()
+        return self.time_to_leave()
 
-        else:
-            if self.internet_does_not_forbid_register():
-                return self.time_to_register()
 
 
 
     def should_feedback_internet_status(self):
-        if self.internet_is_ok == False:
-            print ("internet is shut down,stop notificaiton")
-            return False
-        else:
-            print("we think internet is ok ,keep notificaiton" )
-            return self.time_to_feedback_internet_status()
+        return self.time_to_feedback_internet_status()
 
 
 
@@ -125,9 +110,9 @@ class DailyRegister(object):
 
         
 
-        elem = self.browser.find_element_by_id("email").send_keys("mailaddress")
+        elem = self.browser.find_element_by_id("email").send_keys("wangjc_os@sari.ac.cn")
         time.sleep(3)
-        elem = self.browser.find_element_by_id("password").send_keys("passwd")
+        elem = self.browser.find_element_by_id("password").send_keys("jhl1981")
         time.sleep(3)
 
         self.browser.find_element_by_xpath("//input[contains(@class,'btn-sub')]").send_keys(Keys.RETURN)
@@ -168,6 +153,10 @@ class DailyRegister(object):
         except NoSuchElementException as e:
             print (e)
             self.browser.close()
+        except WebDriverException as e1:
+            print (e1)
+            self.browser.close()
+
 
         
         print ("---"*10)
@@ -185,9 +174,9 @@ class DailyRegister(object):
         browser1 = webdriver.Firefox()
         browser1.get("http://email.163.com/")
       
-        browser1.find_element_by_id("userNameIpt").send_keys("mailaddress@163.com")
+        browser1.find_element_by_id("userNameIpt").send_keys("W93126721@163.com")
         time.sleep(5)
-        browser1.find_element_by_id("pwdPlaceholder").send_keys("passwd")
+        browser1.find_element_by_id("pwdPlaceholder").send_keys("198039")
         time.sleep(5)
         browser1.find_element_by_id("btnSubmit").send_keys(Keys.RETURN)
         print ("---"*10)
@@ -223,6 +212,10 @@ class DailyRegister(object):
             print (e)
             print ("login fail,stop register")
             browser1.close()
+        except WebDriverException as e1:
+            print (e1)
+            browser1.close()
+
 
     
 
@@ -246,6 +239,7 @@ class DailyRegister(object):
 
             elif self.should_perform_leave() == True:
                 print ("time to leave ")
+                time.sleep(3)
                 self.perform_register_or_leave("leave")
                 return
             else:
@@ -263,6 +257,7 @@ class DailyRegister(object):
                 if time.localtime().tm_min > item['min_start'] and time.localtime().tm_min < item['min_end']:
                     find_it = True                    
                     print("find it in table")
+                    
                     return find_it
                 else:
                     print("not find it in table")
@@ -275,20 +270,28 @@ class DailyRegister(object):
     def time_to_feedback_internet_status(self):
 
         feedback_list =[{'hour':6,'min_start':51,'min_end':58},
-                        {'hour':7,'min_start':31,'min_end':38},
-                        {'hour':8,'min_start':1,'min_end':8},
-                        {'hour':14,'min_start':1,'min_end':8},
+                        {'hour':9,'min_start':5,'min_end':8},
+                        {'hour':7,'min_start':15,'min_end':18},
+                        {'hour':7,'min_start':25,'min_end':28},
+                        {'hour':7,'min_start':35,'min_end':38},
+                        {'hour':7,'min_start':45,'min_end':48},
+                        {'hour':7,'min_start':55,'min_end':58},
+                        {'hour':8,'min_start':5,'min_end':8},
+                        {'hour':8,'min_start':15,'min_end':18},
+                        {'hour':8,'min_start':25,'min_end':30},
                         {'hour':15,'min_start':1,'min_end':8},
                         {'hour':16,'min_start':1,'min_end':8},
                         {'hour':17,'min_start':1,'min_end':8},
                         {'hour':20,'min_start':1,'min_end':8},
+                        {'hour':21,'min_start':1,'min_end':8},
+                        {'hour':22,'min_start':1,'min_end':8},
             ]
         return self.time_verify(feedback_list)
 
 
     # time to leave OA
     def time_to_leave(self):
-        leave_list =[{'hour':18,'min_start':2,'min_end':16},
+        leave_list =[{'hour':18,'min_start':2,'min_end':9},
                      {'hour':11,'min_start':52,'min_end':59},
             ]
 
@@ -298,8 +301,8 @@ class DailyRegister(object):
 
     # time to register OA
     def time_to_register(self):
-        register_list =[{'hour':8,'min_start':40,'min_end':59},
-                        {'hour':12,'min_start':20,'min_end':29},
+        register_list =[{'hour':8,'min_start':39,'min_end':59},
+                        {'hour':12,'min_start':22,'min_end':39},
             ]
 
         return self.time_verify(register_list)
