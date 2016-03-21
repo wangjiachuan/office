@@ -42,32 +42,33 @@ class DailyRegister(object):
     def wait_random_time(self):     
         value1 = random.randint(1, 1000)
         value2 = random.randint(1, 800)
-        result = (value1+value2)%5
+        result = (value1+value2)%2
+        print("wait random minutes ,{0} minutes".format(result))
         time.sleep(result*60)
 
     def perform_register_or_leave(self,option): 
-        #self.wait_random_time()      
-        self.browser = webdriver.Firefox() # Get local session of firefox
-        self.browser.get("http://172.30.13.8/index.action") # Load page
-        time.sleep(9) # Let the page load
+        self.wait_random_time()  
+        try:
+            self.browser = webdriver.Firefox() # Get local session of firefox
+            self.browser.get("http://172.30.13.8/index.action") # Load page
+            time.sleep(9) # Let the page load
         
-        #assert "OA" in self.browser.title 
-        if "OA" not in self.browser.title:
-            print("Register System not accessable !!")
-            self.browser.close()
-            return
-        else:
-            print("Find the register page")
+            #assert "OA" in self.browser.title 
+            if "OA" not in self.browser.title:
+                print("Register System not accessable !!")
+                self.browser.close()
+                return
+            else:
+                print("Find the register page")
+  
+            elem = self.browser.find_element_by_id("email").send_keys("wangjc_os@sari.ac.cn")
+            time.sleep(3) 
+            elem = self.browser.find_element_by_id("password").send_keys(self.oa_pass)
+            time.sleep(3)
 
-        elem = self.browser.find_element_by_id("email").send_keys("wangjc_os@sari.ac.cn")
-        time.sleep(3)
-        elem = self.browser.find_element_by_id("password").send_keys(self.oa_pass)
-        time.sleep(3)
-
-        self.browser.find_element_by_xpath("//input[contains(@class,'btn-sub')]").send_keys(Keys.RETURN)
-        time.sleep(9) # Let the page load
-
-        try:             
+            self.browser.find_element_by_xpath("//input[contains(@class,'btn-sub')]").send_keys(Keys.RETURN)
+            time.sleep(9) # Let the page load
+            
             frame = self.browser.find_element_by_xpath("/html/frameset/frameset/frame[2]")
             self.browser.switch_to_frame(frame)
             print("Log in sucessfully")            
