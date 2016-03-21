@@ -73,15 +73,6 @@ class DailyRegister(object):
         result = (value1+value2)%5
         time.sleep(result*60)
 
-    def should_perform_register(self):
-        return self.time_to_register()
-
-    def should_perform_leave(self):
-        return self.time_to_leave()
-
-    def should_feedback_internet_status(self):
-        return self.time_to_feedback_internet_status()
-
     def perform_register_or_leave(self,option): 
         #self.wait_random_time()      
         self.browser = webdriver.Firefox() # Get local session of firefox
@@ -183,18 +174,18 @@ class DailyRegister(object):
     def run_timer(self):
         print("current time is :{0}:{1}".format(time.localtime().tm_hour,time.localtime().tm_min))
         if self.is_working_day(time.localtime().tm_wday)==True:
-            if self.should_feedback_internet_status() == True:
+            if self.time_to_feedback_internet_status() == True:
                 print ("time to feedback the internet status")
                 time.sleep(3)
                 text = "Internet is ok at "+str(time.localtime().tm_hour)+":"+str(time.localtime().tm_min)
                 self.send_message_by_mail(text)
                 return            
-            elif self.should_perform_register() == True:
+            elif self.time_to_register() == True:
                 print ("time to register ")
                 time.sleep(3)
                 self.perform_register_or_leave("register")
                 return
-            elif self.should_perform_leave() == True:
+            elif self.time_to_leave() == True:
                 print ("time to leave ")
                 time.sleep(3)
                 self.perform_register_or_leave("leave")
@@ -229,7 +220,7 @@ class DailyRegister(object):
                         {'hour':8,'min_start':5,'min_end':8},
                         {'hour':8,'min_start':15,'min_end':18},
                         {'hour':8,'min_start':25,'min_end':30},
-                        {'hour':13,'min_start':1,'min_end':59},
+                        {'hour':15,'min_start':1,'min_end':8},
                         {'hour':16,'min_start':1,'min_end':8},
                         {'hour':17,'min_start':1,'min_end':8},
                         {'hour':20,'min_start':1,'min_end':8},
