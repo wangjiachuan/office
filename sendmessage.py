@@ -228,7 +228,7 @@ class DailyRegister(object):
                         {'hour':8,'min_start':5,'min_end':8},
                         {'hour':8,'min_start':15,'min_end':18},
                         {'hour':8,'min_start':25,'min_end':30},
-                        {'hour':12,'min_start':41,'min_end':58},
+                        {'hour':13,'min_start':1,'min_end':59},
                         {'hour':16,'min_start':1,'min_end':8},
                         {'hour':17,'min_start':1,'min_end':8},
                         {'hour':20,'min_start':1,'min_end':8},
@@ -254,6 +254,7 @@ class DailyRegister(object):
             print("cycle is :{0}".format(i))
             self.run_timer()
             print('-'*30)
+            print("cycle done,start another cycle")
             time.sleep(60)
         a = input
 
