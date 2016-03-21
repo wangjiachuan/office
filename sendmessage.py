@@ -1,4 +1,4 @@
-#coding=utf-8
+#-*- coding: utf8 -*-
 import sys
 #reload(sys)
 #sys.setdefaultencoding('utf-8')
@@ -13,6 +13,7 @@ import random
 
 class DailyRegister(object):
     browser = None
+    mail_pass = "198039"
 
 
     def __init__(self):
@@ -49,7 +50,7 @@ class DailyRegister(object):
       
         browser1.find_element_by_id("userNameIpt").send_keys("W93126721@163.com")
         time.sleep(5)
-        browser1.find_element_by_id("pwdPlaceholder").send_keys("198039")
+        browser1.find_element_by_id("pwdPlaceholder").send_keys(self.mail_pass)
         time.sleep(5)
         browser1.find_element_by_id("btnSubmit").send_keys(Keys.RETURN)
         print ("---"*10)
@@ -176,7 +177,7 @@ class DailyRegister(object):
       
         browser1.find_element_by_id("userNameIpt").send_keys("W93126721@163.com")
         time.sleep(5)
-        browser1.find_element_by_id("pwdPlaceholder").send_keys("198039")
+        browser1.find_element_by_id("pwdPlaceholder").send_keys(self.mail_pass)
         time.sleep(5)
         browser1.find_element_by_id("btnSubmit").send_keys(Keys.RETURN)
         print ("---"*10)
