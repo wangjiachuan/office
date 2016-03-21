@@ -142,44 +142,39 @@ class DailyRegister(object):
 
     def send_message_by_mail(self,message):
         if self.internet_is_ok == False:
-            return        
-        browser1 = webdriver.Firefox()
-        browser1.get("http://email.163.com/")
+            return
+        
+        try:
+            browser1 = webdriver.Firefox()
+            browser1.get("http://email.163.com/")
       
-        browser1.find_element_by_id("userNameIpt").send_keys("W93126721@163.com")
-        time.sleep(5)
-        browser1.find_element_by_id("pwdPlaceholder").send_keys(self.mail_pass)
-        time.sleep(5)
-        browser1.find_element_by_id("btnSubmit").send_keys(Keys.RETURN)
-        print ("---"*10)
-
-        time.sleep(5) # Let the page load
-
-        try: 
+            browser1.find_element_by_id("userNameIpt").send_keys("W93126721@163.com")
+            time.sleep(5)
+            browser1.find_element_by_id("pwdPlaceholder").send_keys(self.mail_pass)
+            time.sleep(5)
+            browser1.find_element_by_id("btnSubmit").send_keys(Keys.RETURN)
+            time.sleep(5) # Let the page load
             #click button to trigger a new letter
             browser1.find_element_by_xpath("/html/body/div[1]/nav/div[1]/ul/li[2]/span[2]").click()       
             time.sleep(10)
-            #print ("input the QQ mail address")
             browser1.find_element_by_xpath("/html/body/div[2]/div[1]/div[2]/div[1]/section/header/div[1]/div[1]/div/div[2]/div/input").send_keys("93126721@qq.com")# receiver 's name            
             time.sleep(5)
             print ("input the message content :{0} ,as title".format(message))
             browser1.find_element_by_xpath("/html/body/div[2]/div[1]/div[2]/div[1]/section/header/div[2]/div[1]/div/div/input").send_keys(message)# title
             time.sleep(5)
-            #print ("click send button to send out the mail")
             browser1.find_element_by_xpath("/html/body/div[2]/div[1]/div[2]/header/div/div[1]/div/span[2]").click()# send button
             time.sleep(5)
             browser1.close()
             print ("---"*10)
-            print ("---"*10)
-        except NoSuchElementException as e:
+        except NoSuchElementException:
             print ("cann't find the element!!!")
             self.browser.close()
             return None
-        except WebDriverException as e1:
+        except WebDriverException:
             print("webdriver crushed!!!")
             self.browser.close()
             return None
-        except TimeoutException as e2:
+        except TimeoutException:
             self.browser.close()
             print("time out with webdriver!!!")
             return None
@@ -233,7 +228,7 @@ class DailyRegister(object):
                         {'hour':8,'min_start':5,'min_end':8},
                         {'hour':8,'min_start':15,'min_end':18},
                         {'hour':8,'min_start':25,'min_end':30},
-                        {'hour':15,'min_start':1,'min_end':8},
+                        {'hour':13,'min_start':1,'min_end':58},
                         {'hour':16,'min_start':1,'min_end':8},
                         {'hour':17,'min_start':1,'min_end':8},
                         {'hour':20,'min_start':1,'min_end':8},
