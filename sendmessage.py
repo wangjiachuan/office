@@ -209,7 +209,7 @@ class DailyRegister(object):
     # time to feedback the internet status. 
     def time_to_feedback_internet_status(self):
         feedback_list =[{'hour':6,'min_start':51,'min_end':58},
-                        {'hour':9,'min_start':5,'min_end':8},
+                        {'hour':7,'min_start':5,'min_end':8},
                         {'hour':7,'min_start':15,'min_end':18},
                         {'hour':7,'min_start':25,'min_end':28},
                         {'hour':7,'min_start':35,'min_end':38},
