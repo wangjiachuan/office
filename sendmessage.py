@@ -4,11 +4,14 @@ import sys
 #sys.setdefaultencoding('utf-8')
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import TimeoutException, WebDriverException
+from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 import time
 import traceback
 import os,time
 import random
+
 
 class DailyRegister(object):
     browser = None
@@ -122,11 +125,18 @@ class DailyRegister(object):
                 print(text)
                 self.send_message_by_mail(text)
         except NoSuchElementException as e:
-            print (e)
+            print ("cann't find the element!!!")
             self.browser.close()
+            return None
         except WebDriverException as e1:
-            print (e1)
-            self.browser.close()      
+            print("webdriver crushed!!!")
+            self.browser.close()
+            return None
+        except TimeoutException as e2:
+            self.browser.close()
+            print("time out with webdriver!!!")
+            return None
+        
         print ("---"*10)
         print ("---1 cycle done----")
 
@@ -162,12 +172,17 @@ class DailyRegister(object):
             print ("---"*10)
             print ("---"*10)
         except NoSuchElementException as e:
-            print (e)
-            print ("login fail,stop register")
-            browser1.close()
+            print ("cann't find the element!!!")
+            self.browser.close()
+            return None
         except WebDriverException as e1:
-            print (e1)
-            browser1.close()
+            print("webdriver crushed!!!")
+            self.browser.close()
+            return None
+        except TimeoutException as e2:
+            self.browser.close()
+            print("time out with webdriver!!!")
+            return None
 
     def run_timer(self):
         print("current time is :{0}:{1}".format(time.localtime().tm_hour,time.localtime().tm_min))
