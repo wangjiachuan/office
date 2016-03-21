@@ -168,14 +168,14 @@ class DailyRegister(object):
             print ("---"*10)
         except NoSuchElementException:
             print ("cann't find the element!!!")
-            self.browser.close()
+            browser1.close()
             return None
         except WebDriverException:
             print("webdriver crushed!!!")
-            self.browser.close()
+            browser1.close()
             return None
         except TimeoutException:
-            self.browser.close()
+            browser1.close()
             print("time out with webdriver!!!")
             return None
 
@@ -228,7 +228,7 @@ class DailyRegister(object):
                         {'hour':8,'min_start':5,'min_end':8},
                         {'hour':8,'min_start':15,'min_end':18},
                         {'hour':8,'min_start':25,'min_end':30},
-                        {'hour':13,'min_start':1,'min_end':58},
+                        {'hour':12,'min_start':41,'min_end':58},
                         {'hour':16,'min_start':1,'min_end':8},
                         {'hour':17,'min_start':1,'min_end':8},
                         {'hour':20,'min_start':1,'min_end':8},
