@@ -39,34 +39,6 @@ class DailyRegister(object):
             print("weekend,do nothing.quit")
             return False
         
-    def internet_does_not_forbid_register(self):
-        return True
-
-        try:
-            browser1 = webdriver.Firefox()
-            browser1.get("http://email.163.com/")
-
-            #assert "网易免费邮箱 - 中国第一大电子邮件服务商" in browser1.title
-      
-            browser1.find_element_by_id("userNameIpt").send_keys("W93126721@163.com")
-            time.sleep(5)
-            browser1.find_element_by_id("pwdPlaceholder").send_keys(self.mail_pass)
-            time.sleep(5)
-            browser1.find_element_by_id("btnSubmit").send_keys(Keys.RETURN)
-            print ("---"*10)
-            time.sleep(9) # Let the page load
-   
-            browser1.find_element_by_xpath("//span[contains(.,'写 信')]")
-            browser1.close()
-            print ("---"*10)
-            return True
-
-        except NoSuchElementException as e:
-            print (e)
-            print ("login fail,stop register")
-            browser1.close()
-            return False
-
     def wait_random_time(self):     
         value1 = random.randint(1, 1000)
         value2 = random.randint(1, 800)
