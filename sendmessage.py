@@ -13,7 +13,8 @@ import random
 
 class DailyRegister(object):
     browser = None
-    mail_pass = "198039"
+    mail_pass = ""
+    oa_pass = ""
 
 
     def __init__(self):
@@ -113,7 +114,7 @@ class DailyRegister(object):
 
         elem = self.browser.find_element_by_id("email").send_keys("wangjc_os@sari.ac.cn")
         time.sleep(3)
-        elem = self.browser.find_element_by_id("password").send_keys("jhl1981")
+        elem = self.browser.find_element_by_id("password").send_keys(self.oa_pass)
         time.sleep(3)
 
         self.browser.find_element_by_xpath("//input[contains(@class,'btn-sub')]").send_keys(Keys.RETURN)
