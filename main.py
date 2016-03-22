@@ -11,7 +11,7 @@ class DailyRegisterMain(object):
             os.chdir(os.getcwd())
             os.system(r"C:\Python34\python.exe D:\office\register\sendmessage.py")
             print('-'*30)
-            print("cycle done,start another cycle")
+            print("cycle done,start another cycle:{0}".format(i+1))
             time.sleep(60)
         a = input
 
