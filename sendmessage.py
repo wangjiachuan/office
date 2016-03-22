@@ -77,7 +77,7 @@ class DailyRegister(object):
                 elem = self.browser.find_element_by_xpath("/html/body/div[1]/div[1]/div[2]/div[2]/div[2]/ul/li[1]/input").send_keys(Keys.RETURN) #working
                 time.sleep(5)                
                 #self.browser.save_screenshot("shot.png")                
-                self.browser.close()
+                self.browser.quit()
                 text = "Register  successfully at "+str(time.localtime().tm_hour)+":"+str(time.localtime().tm_min)
                 print(text)
                 self.send_message_by_mail(text)
@@ -85,20 +85,20 @@ class DailyRegister(object):
                 print("command is : leave")
                 elem = self.browser.find_element_by_xpath("/html/body/div[1]/div[1]/div[2]/div[2]/div[2]/ul/li[2]/input").send_keys(Keys.RETURN) #leave
                 time.sleep(5)
-                self.browser.close()
+                self.browser.quit()
                 text = "Leave  successfully at "+str(time.localtime().tm_hour)+":"+str(time.localtime().tm_min)
                 print(text)
                 self.send_message_by_mail(text)
         except NoSuchElementException:
             print ("cann't find the element!!!")
-            self.browser.close()
+            self.browser.quit()
             return None
         except WebDriverException:
             print("webdriver crushed!!!")
-            self.browser.close()
+            self.browser.quit()
             return None
         except TimeoutException:
-            self.browser.close()
+            self.browser.quit()
             print("time out with webdriver!!!")
             return None
         
@@ -133,14 +133,14 @@ class DailyRegister(object):
             print ("---"*10)
         except NoSuchElementException:
             print ("cann't find the element!!!")
-            browser1.close()
+            browser1.quit()
             return None
         except WebDriverException:
             print("webdriver crushed!!!")
-            browser1.close()
+            browser1.quit()
             return None
         except TimeoutException:
-            browser1.close()
+            browser1.quit()
             print("time out with webdriver!!!")
             return None
 
@@ -203,8 +203,8 @@ class DailyRegister(object):
 
     # time to leave OA
     def time_to_leave(self):
-        leave_list =[{'hour':18,'min_start':2,'min_end':9},
-                     {'hour':11,'min_start':52,'min_end':59},]
+        leave_list =[{'hour':18,'min_start':3,'min_end':9},
+                     {'hour':11,'min_start':51,'min_end':59},]
         return self.time_verify(leave_list)
 
     # time to register OA
