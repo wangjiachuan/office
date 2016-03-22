@@ -56,7 +56,7 @@ class DailyRegister(object):
             #assert "OA" in self.browser.title 
             if "OA" not in self.browser.title:
                 print("Register System not accessable !!")
-                self.browser.close()
+                self.browser.quit()
                 return
             else:
                 print("Find the register page")
@@ -129,7 +129,7 @@ class DailyRegister(object):
             time.sleep(5)
             browser1.find_element_by_xpath("/html/body/div[2]/div[1]/div[2]/header/div/div[1]/div/span[2]").click()# send button
             time.sleep(5)
-            browser1.close()
+            browser1.quit()
             print ("---"*10)
         except NoSuchElementException:
             print ("cann't find the element!!!")
