@@ -192,7 +192,7 @@ class DailyRegister(object):
                         {'hour':7,'min_start':55,'min_end':58},
                         {'hour':8,'min_start':5,'min_end':8},
                         {'hour':8,'min_start':15,'min_end':18},
-                        {'hour':8,'min_start':25,'min_end':30},
+                        {'hour':8,'min_start':25,'min_end':28},
                         {'hour':15,'min_start':1,'min_end':8},
                         {'hour':16,'min_start':1,'min_end':8},
                         {'hour':17,'min_start':1,'min_end':8},
@@ -203,25 +203,19 @@ class DailyRegister(object):
 
     # time to leave OA
     def time_to_leave(self):
-        leave_list =[{'hour':18,'min_start':3,'min_end':9},
-                     {'hour':11,'min_start':51,'min_end':59},]
+        leave_list =[{'hour':18,'min_start':1,'min_end':8},
+                     {'hour':11,'min_start':51,'min_end':58},]
         return self.time_verify(leave_list)
 
     # time to register OA
     def time_to_register(self):
-        register_list =[{'hour':8,'min_start':39,'min_end':59},
-                        {'hour':12,'min_start':22,'min_end':39},]
+        register_list =[{'hour':8,'min_start':38,'min_end':58},
+                        {'hour':12,'min_start':22,'min_end':28},]
         return self.time_verify(register_list)
             
     def main(self):
-        for i in range(50000):
-            print('-'*30)
-            print("cycle is :{0}".format(i))
-            self.run_timer()
-            print('-'*30)
-            print("cycle done,start another cycle")
-            time.sleep(60)
-        a = input
+        self.run_timer()
+
 
 if __name__ == '__main__':
 
