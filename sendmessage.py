@@ -175,7 +175,7 @@ class DailyRegister(object):
             if time.localtime().tm_hour == item['hour']:
                 if time.localtime().tm_min > item['min_start'] and time.localtime().tm_min < item['min_end']:
                     find_it = True                    
-                    print("find it in table")                    
+                    print("find task in table!")                    
                     return find_it
                 else:
                     print("not find it in table")
@@ -210,7 +210,7 @@ class DailyRegister(object):
     # time to register OA
     def time_to_register(self):
         register_list =[{'hour':8,'min_start':38,'min_end':58},
-                        {'hour':12,'min_start':22,'min_end':28},]
+                        {'hour':12,'min_start':22,'min_end':38},]
         return self.time_verify(register_list)
             
     def main(self):
