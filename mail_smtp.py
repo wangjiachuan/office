@@ -10,13 +10,7 @@ import os.path
 import mimetypes
 from email import encoders
 
-'''
-import smtplib
-import os
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-from email import encoders
-'''
+
 From = "w93126721@163.com"
 To = "93126721@qq.com"
 file_name = "d:/1.txt"#附件名
@@ -25,11 +19,9 @@ server = smtplib.SMTP("smtp.163.com")
 server.login("w93126721","198039wang") #仅smtp服务器需要验证时
 
 # 构造MIMEMultipart对象做为根容器
-#main_msg = email.MIMEMultipart.MIMEMultipart()
 main_msg = MIMEMultipart()
 
 # 构造MIMEText对象做为邮件显示内容并附加到根容器
-#text_msg = email.MIMEText.MIMEText("this is a test text to text mime",_charset="utf-8")
 text_msg = MIMEText("this is a test text to text mime",_charset="utf-8")
 main_msg.attach(text_msg)
 
@@ -41,11 +33,9 @@ ctype,encoding = mimetypes.guess_type(file_name)
 if ctype is None or encoding is not None:
 	ctype = 'application/octet-stream'
 maintype,subtype = ctype.split('/',1)
-#file_msg = email.MIMEBase.MIMEBase(maintype, subtype)
 file_msg = MIMEBase(maintype, subtype)
 file_msg.set_payload(data.read())
 data.close( )
-#email.Encoders.encode_base64(file_msg)#把附件编码
 encoders.encode_base64(file_msg)#把附件编码
 '''
  测试识别文件类型：mimetypes.guess_type(file_name)
@@ -73,7 +63,7 @@ main_msg['From'] = From
 main_msg['To'] = To
 main_msg['Subject'] = "python3 attach test "
 #main_msg['Date'] = email.Utils.formatdate( )
-#main_msg['Date'] = Utils.formatdate( )
+
 
 # 得到格式化后的完整文本
 fullText = main_msg.as_string( )
