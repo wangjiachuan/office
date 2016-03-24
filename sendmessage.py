@@ -12,6 +12,7 @@ import traceback
 import os,time
 import random
 import mail_smtp
+import getopt
 
 
 class DailyRegister(object):
@@ -218,6 +219,20 @@ class DailyRegister(object):
         return self.time_verify(register_list)
             
     def main(self):
+        try:
+            options,args = getopt.getopt(sys.argv[1:],"hp:i:",["help","ip=","port="])
+        except getopt.GetoptError:
+            sys.exit()
+
+        for name,value in options:
+            print(name,value)
+            if name in ["-h","--help"]:
+                print("force register...")
+            if name in ["-i","--ip"]:
+                print("force leave...")
+            if name in ["-p","--port"]:
+                print("option 3")
+                
         self.run_timer()
         
 
