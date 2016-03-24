@@ -115,6 +115,20 @@ def get_mails():
      
     #获取收件箱
     elist = mail163.getInBox()
+    #write to file
+    path = os.getcwd()
+    filename = "163cmd.txt"
+    if False == os.path.exists(path+os.sep+filename):
+        with open(str(path+os.sep+filename),"rw") as f:
+            f.seek(0,0)
+            lines = f.readlines()
+            for line in lines:
+                print ("content in file is %s".format(line))
+                if(line.find(content)==-1):
+                    pass
+                else:
+                    print ("find the content!")  
+
     return elist
 
 

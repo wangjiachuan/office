@@ -22,6 +22,10 @@ class DailyRegisterMain(object):
                 os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -l")
             elif i['subject'].encode('utf8') == "force feedback please,i will not be there":
                 os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -f")
+
+    def get_mail_cmd():
+        
+        pass
         
     
     def main(self):
