@@ -110,7 +110,7 @@ def get_mails():
     #初始化
     mail163 = Email163()
     #登录
-    mail163.login('W93126721@163.com',"")
+    mail163.login('W93126721@163.com',"198039")
     time.sleep(2)
      
     #获取收件箱
@@ -126,7 +126,7 @@ def main():
     #初始化
     mail163 = Email163()
     #登录
-    mail163.login('W93126721@163.com',"")
+    mail163.login('W93126721@163.com',"198039")
     time.sleep(2)
      
     #获取收件箱
@@ -134,7 +134,7 @@ def main():
      
     #获取邮件内容
     for i in elist:
-        print '主题：%s   来自：%s  内容：\n%s'%(i['subject'].encode('utf8'),i['from'].encode('utf8'),mail163.getMailMsg(i['url']).encode('utf8'))
+        print ('主题：%s   来自：%s  内容：\n%s'%(i['subject'].encode('utf8'),i['from'].encode('utf8'),mail163.getMailMsg(i['url']).encode('utf8')))
 
 if __name__ == '__main__':
     main()
