@@ -17,7 +17,7 @@ import mail_smtp
 class DailyRegister(object):
     browser = None
     mail_pass = ""
-    oa_pass = ""
+    oa_pass = "jhl1981"
 
     def __init__(self):
         self.internet_is_ok = True
