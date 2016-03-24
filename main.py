@@ -11,7 +11,6 @@ class DailyRegisterMain(object):
             #print ('subject is：%s'%(i['subject'].encode('utf8')))
             if i['subject'].encode('utf8') == "stop register please,i will not come":
                 return False
-    
         return True
 
     def force(self):
@@ -19,7 +18,7 @@ class DailyRegisterMain(object):
         for i in result:
             if i['subject'].encode('utf8') == "force register please,i will not be there":
                 os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -r")
-            elif i['subject'].encode('utf8') == "force register please,i will not be there":
+            elif i['subject'].encode('utf8') == "force leave please,i will not be there":
                 os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -l")
             elif i['subject'].encode('utf8') == "force feedback please,i will not be there":
                 os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -f")
