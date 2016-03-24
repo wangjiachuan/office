@@ -220,18 +220,17 @@ class DailyRegister(object):
             
     def main(self):
         try:
-            options,args = getopt.getopt(sys.argv[1:],"hp:i:",["help","ip=","port="])
+            options,args = getopt.getopt(sys.argv[1:],"rl",["help","ip=","port="])
         except getopt.GetoptError:
             sys.exit()
 
         for name,value in options:
             print(name,value)
-            if name in ["-h","--help"]:
+            if name in ["-r","--help"]:
                 print("force register...")
-            if name in ["-i","--ip"]:
+            if name in ["-l","--ip"]:
                 print("force leave...")
-            if name in ["-p","--port"]:
-                print("option 3")
+
                 
         self.run_timer()
         
