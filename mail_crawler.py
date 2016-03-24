@@ -10,6 +10,7 @@ import cookielib
 import re
 import time
 import json
+import os
  
 class Email163:
     header = {'User-Agent':'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.6) Gecko/20091201 Firefox/3.5.6'}
@@ -106,7 +107,7 @@ class Email163:
         return content
 
 
-def get_mails():
+def get_mails_cmd():
     #初始化
     mail163 = Email163()
     #登录
@@ -118,18 +119,15 @@ def get_mails():
     #write to file
     path = os.getcwd()
     filename = "163cmd.txt"
-    if False == os.path.exists(path+os.sep+filename):
-        with open(str(path+os.sep+filename),"rw") as f:
-            f.seek(0,0)
-            lines = f.readlines()
-            for line in lines:
-                print ("content in file is %s".format(line))
-                if(line.find(content)==-1):
-                    pass
-                else:
-                    print ("find the content!")  
 
-    return elist
+    for i in elist:
+        print ('%s\n'%(i['subject'].encode('utf8')))
+        with open(str(path+os.sep+filename),"a") as f:
+            f.seek(0,0)
+            f.write('%s\n'%(i['subject'].encode('utf8')))
+        
+
+
 
 
 
@@ -151,6 +149,7 @@ def main():
         print ('主题：%s   来自：%s  内容：\n%s'%(i['subject'].encode('utf8'),i['from'].encode('utf8'),mail163.getMailMsg(i['url']).encode('utf8')))
 
 if __name__ == '__main__':
-    main()
+    #main()
+    get_mails_cmd()
 
 

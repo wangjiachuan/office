@@ -6,26 +6,36 @@ import mail_crawler
 
 class DailyRegisterMain(object):
     def should_run(self):
-        result = mail_crawler.get_mails()
-        for i in result:
-            #print ('subject is：%s'%(i['subject'].encode('utf8')))
-            if i['subject'].encode('utf8') == "stop register please,i will not come":
-                return False
+        result = self.get_mail_cmd()
+        if result == "stop register please,i will not come":
+            return False
+        else:
+            pass
         return True
 
     def force(self):
-        result = mail_crawler.get_mails()
-        for i in result:
-            if i['subject'].encode('utf8') == "force register please,i will not be there":
-                os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -r")
-            elif i['subject'].encode('utf8') == "force leave please,i will not be there":
-                os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -l")
-            elif i['subject'].encode('utf8') == "force feedback please,i will not be there":
-                os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -f")
+        result = self.get_mail_cmd()
+        if result == "force register please,i will not be there":
+            os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -r")
+        elif result == "force leave please,i will not be there":
+            os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -l")
+        elif result == "force feedback please,i will not be there":
+            os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -f")
 
-    def get_mail_cmd():
-        
-        pass
+    def get_mail_cmd(self):
+        path = os.getcwd()
+        filename = "163cmd.txt"
+        if True == os.path.exists(path+os.sep+filename):
+            with open(str(path+os.sep+filename),"rw") as f:
+                f.seek(0,0)
+                lines = f.readlines()
+                if len(lines) == 1:
+                    return lines
+                else:
+                    print("more than 1 command from 163")
+                    return ""
+ 
+
         
     
     def main(self):
@@ -33,13 +43,17 @@ class DailyRegisterMain(object):
             print('-'*30)
             print("cycle is :{0}".format(i+1))
             os.chdir(os.getcwd())
+            # get cmd
+            os.system(r"C:\Python27\python.exe D:\office\message\mail_crawler.py")
             # force checking
-            #self.force()
+            self.force()
             # forbid checking
-            if True:
+            if True == self.should_run():
                 os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py")
             else:
                 print("find stop mail in 163 mail box,quit")
+            # remove cmd
+            os.system("rm 163cmd.txt")
             print('-'*30)
             print("cycle done,start another cycle:{0}".format(i+1))
             time.sleep(60)
