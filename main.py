@@ -13,14 +13,26 @@ class DailyRegisterMain(object):
                 return False
     
         return True
+
+    def force(self):
+        result = mail_crawler.get_mails()
+        for i in result:
+            if i['subject'].encode('utf8') == "force register please,i will not be there":
+                os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -r")
+            elif i['subject'].encode('utf8') == "force register please,i will not be there":
+                os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -l")
+        
     
     def main(self):
         for i in range(50000):
             print('-'*30)
             print("cycle is :{0}".format(i+1))
             os.chdir(os.getcwd())
+            # force checking
+            self.force()
+            # forbid checking
             if self.should_run()== True:
-                os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -l")
+                os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py")
             else:
                 print("find stop mail in 163 mail box,quit")
             print('-'*30)

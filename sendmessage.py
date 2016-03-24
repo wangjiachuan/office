@@ -227,9 +227,11 @@ class DailyRegister(object):
         for name,value in options:
             print(name,value)
             if name in ["-r","--help"]:
-                print("force register...")
+                print("receive force register cmd,force register...")
+                self.perform_register_or_leave("register")
             if name in ["-l","--ip"]:
-                print("force leave...")
+                print("receive force leave cmd,force leave...")
+                self.perform_register_or_leave("leave")
 
                 
         self.run_timer()
