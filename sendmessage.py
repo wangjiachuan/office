@@ -220,19 +220,19 @@ class DailyRegister(object):
             
     def main(self):
         try:
-            options,args = getopt.getopt(sys.argv[1:],"rlf",["help","ip=","port="])
+            options,args = getopt.getopt(sys.argv[1:],"rlf",["register","leave=","feedback="])
         except getopt.GetoptError:
             sys.exit()
 
         for name,value in options:
             print(name,value)
-            if name in ["-r","--help"]:
+            if name in ["-r","--register"]:
                 print("receive force register cmd,force register...")
                 self.perform_register_or_leave("register")
-            if name in ["-l","--ip"]:
+            if name in ["-l","--leave"]:
                 print("receive force leave cmd,force leave...")
                 self.perform_register_or_leave("leave")
-            if name in ["-f","--port"]:
+            if name in ["-f","--feedback"]:
                 print("receive force feedback cmd,force feedback...")
                 text = "Internet is ok at "+str(time.localtime().tm_hour)+":"+str(time.localtime().tm_min)
                 self.send_message_by_mail(text)
