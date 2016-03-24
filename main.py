@@ -5,25 +5,24 @@ import time
 import mail_crawler
 
 class DailyRegisterMain(object):
-    def should_run(self):
-        result = self.get_mail_cmd()
-        if result == "stop register please,i will not come":
-            return False
-        else:
-            pass
-        return True
 
     def force(self):
         result = self.get_mail_cmd()
         if result == "force register please,i will not be there":
-            os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -r")
             print("force register")
+            os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -r")
+            
         elif result == "force leave please,i will not be there":
-            os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -l")
             print("force leave")
+            os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -l")
+            
         elif result == "force feedback please,i will not be there":
-            os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -f")
             print("force feedback")
+            os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -f")
+            
+        elif result == "stop register please,i will not come":
+            print("forbid register")
+            os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py")
 
     def get_mail_cmd(self):
         path = os.getcwd()
@@ -57,11 +56,6 @@ class DailyRegisterMain(object):
             os.system(r"C:\Python27\python.exe D:\office\message\mail_crawler.py")
             # force checking
             self.force()
-            # forbid checking
-            if True == self.should_run():
-                os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py")
-            else:
-                print("find stop mail in 163 mail box,quit")
             # remove cmd
             os.system("rm 163cmd.txt")
             print('-'*30)
