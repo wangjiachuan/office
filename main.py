@@ -30,9 +30,9 @@ class DailyRegisterMain(object):
             print("cycle is :{0}".format(i+1))
             os.chdir(os.getcwd())
             # force checking
-            self.force()
+            #self.force()
             # forbid checking
-            if self.should_run()== True:
+            if True:
                 os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py")
             else:
                 print("find stop mail in 163 mail box,quit")
