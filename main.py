@@ -8,8 +8,8 @@ class DailyRegisterMain(object):
     def should_run(self):
         result = mail_crawler.get_mails()
         for i in result:
-            print ('主题：%s'%(i['subject'].encode('utf8')))
-            if i['subject'].encode('utf8') == "1":
+            #print ('subject is：%s'%(i['subject'].encode('utf8')))
+            if i['subject'].encode('utf8') == "stop register please,i will not come":
                 return False
     
         return True
