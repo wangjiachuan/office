@@ -220,7 +220,7 @@ class DailyRegister(object):
             
     def main(self):
         try:
-            options,args = getopt.getopt(sys.argv[1:],"rl",["help","ip=","port="])
+            options,args = getopt.getopt(sys.argv[1:],"rlf",["help","ip=","port="])
         except getopt.GetoptError:
             sys.exit()
 
@@ -232,6 +232,11 @@ class DailyRegister(object):
             if name in ["-l","--ip"]:
                 print("receive force leave cmd,force leave...")
                 self.perform_register_or_leave("leave")
+            if name in ["-f","--port"]:
+                print("receive force feedback cmd,force feedback...")
+                self.perform_register_or_leave("leave")
+                text = "Internet is ok at "+str(time.localtime().tm_hour)+":"+str(time.localtime().tm_min)
+                self.send_message_by_mail(text)
 
                 
         self.run_timer()
