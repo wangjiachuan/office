@@ -52,16 +52,16 @@ class Email163:
         if patt:
             self.sid = patt.group(1).strip()
             #print self.sid
-            print '%s Login Successful.....'%(uname)
+            print ('%s Login Successful.....'%(uname))
         else:
-            print '%s Login failed....'%(uname)            
+            print ('%s Login failed....'%(uname))            
  
  
     def getInBox(self):
         '''
             获取邮箱列表
         '''
-        print '\nGet mail lists.....\n'
+        print ('\nGet mail lists.....\n')
         sid = self.sid
         url = self.mailBaseUrl+'/jy3/list/list.do?sid='+sid+'&fid=1&fr=folder'
         res = urllib2.urlopen(url).read()
@@ -88,7 +88,7 @@ class Email163:
             下载邮件内容
         '''
         content=''
-        print '\n Download.....%s\n'%(url)
+        print ('\n Download.....%s\n'%(url))
         res = urllib2.urlopen(url).read()
          
         patt = re.compile('contentURL:"([^"]+)"',re.I)
