@@ -17,23 +17,33 @@ class DailyRegisterMain(object):
         result = self.get_mail_cmd()
         if result == "force register please,i will not be there":
             os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -r")
+            print("force register")
         elif result == "force leave please,i will not be there":
             os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -l")
+            print("force leave")
         elif result == "force feedback please,i will not be there":
             os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -f")
+            print("force feedback")
 
     def get_mail_cmd(self):
         path = os.getcwd()
         filename = "163cmd.txt"
         if True == os.path.exists(path+os.sep+filename):
+            print("find 163cmd.txt")
             with open(str(path+os.sep+filename),"rw") as f:
                 f.seek(0,0)
                 lines = f.readlines()
                 if len(lines) == 1:
-                    return lines
+                    print("find 1 command from 163")
+                    for item in lines:
+                        print("cmd is :%s" % item)
+                        return item
                 else:
                     print("more than 1 command from 163")
                     return ""
+        else:
+            print("does not find 163cmd.txt")
+            pass
  
 
         
