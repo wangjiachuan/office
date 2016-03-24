@@ -234,7 +234,6 @@ class DailyRegister(object):
                 self.perform_register_or_leave("leave")
             if name in ["-f","--port"]:
                 print("receive force feedback cmd,force feedback...")
-                self.perform_register_or_leave("leave")
                 text = "Internet is ok at "+str(time.localtime().tm_hour)+":"+str(time.localtime().tm_min)
                 self.send_message_by_mail(text)
 
