@@ -11,17 +11,20 @@ class DailyRegisterMain(object):
         if result == "force register please,i will not be there":
             print("force register")
             os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -r")
-            
+            return
         elif result == "force leave please,i will not be there":
             print("force leave")
             os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -l")
-            
+            return
         elif result == "force feedback please,i will not be there":
             print("force feedback")
             os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -f")
-            
+            return
         elif result == "stop register please,i will not come":
             print("forbid register")
+            return
+        else:
+            print("no 163 cmd,useing default dealer")
             os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py")
 
     def get_mail_cmd(self):
