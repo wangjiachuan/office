@@ -32,7 +32,7 @@ class DailyRegisterMain(object):
         filename = "163cmd.txt"
         if True == os.path.exists(path+os.sep+filename):
             print("find 163cmd.txt")
-            with open(str(path+os.sep+filename),"rw") as f:
+            with open(str(path+os.sep+filename),"r") as f:
                 f.seek(0,0)
                 lines = f.readlines()
                 if len(lines) == 1:
@@ -57,10 +57,18 @@ class DailyRegisterMain(object):
             os.chdir(os.getcwd())
             # get cmd
             os.system(r"C:\Python27\python.exe D:\office\message\mail_crawler.py")
+            print("geting 163 cmd ... ")
+            time.sleep(5)
             # force checking
             self.force()
             # remove cmd
-            os.system("rm 163cmd.txt")
+            filename = "163cmd.txt"
+            if os.path.exists(filename):
+                os.remove(filename)
+            else:
+                print("no 163cmd.txt found,no deletion ")
+                
+            
             print('-'*30)
             print("cycle done,start another cycle:{0}".format(i+1))
             time.sleep(60)
