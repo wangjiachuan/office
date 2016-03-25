@@ -14,7 +14,7 @@ def send_smtp_message(mytitle,mycontent):
         file_name = "d:/1.txt"#附件名
 
         server = smtplib.SMTP("smtp.163.com")
-        server.login("w93126721","201103") #仅smtp服务器需要验证时
+        server.login("w93126721","198039wang") #仅smtp服务器需要验证时
 
         # 构造MIMEMultipart对象做为根容器
         main_msg = MIMEMultipart()

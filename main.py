@@ -35,9 +35,7 @@ class DailyRegisterMain(object):
             print("no 163 cmd,useing default dealer")
             os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py")
 
-    def get_mail_cmd(self):
-
-        
+    def get_mail_cmd(self):  
         path = os.getcwd()
         filename = "163cmd.txt"
         if True == os.path.exists(path+os.sep+filename):
