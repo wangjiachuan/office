@@ -51,11 +51,7 @@ class DailyRegisterMain(object):
         else:
             print("does not find 163cmd.txt")
             return ""
-            
- 
-
-        
-    
+               
     def main(self):
         for i in range(50000):
             print('-'*30)
@@ -72,9 +68,7 @@ class DailyRegisterMain(object):
             if os.path.exists(filename):
                 os.remove(filename)
             else:
-                print("no 163cmd.txt found,no deletion ")
-                
-            
+                print("no 163cmd.txt found,no deletion ")            
             print('-'*30)
             print("cycle done,start another cycle:{0}".format(i+1))
             time.sleep(60)
