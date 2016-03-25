@@ -17,12 +17,12 @@ import getopt
 
 class DailyRegister(object):
     browser = None
-    mail_pass = ""
+    mail_pass = "198039"
     oa_pass = "jhl1981"
 
     def __init__(self):
         self.internet_is_ok = True
-        self.selenium_or_smtp = "smtp"
+        self.selenium_or_smtp = "selenium"
         print ("self.internet_is_ok:{}".format(self.internet_is_ok))
         
     def is_working_day(self,work_time):
@@ -200,7 +200,7 @@ class DailyRegister(object):
                         {'hour':8,'min_start':25,'min_end':28},
                         {'hour':15,'min_start':1,'min_end':8},
                         {'hour':16,'min_start':1,'min_end':8},
-                        {'hour':17,'min_start':1,'min_end':8},
+                        {'hour':17,'min_start':1,'min_end':38},
                         {'hour':20,'min_start':1,'min_end':8},
                         {'hour':21,'min_start':1,'min_end':8},
                         {'hour':22,'min_start':1,'min_end':8},]
@@ -208,13 +208,13 @@ class DailyRegister(object):
 
     # time to leave OA
     def time_to_leave(self):
-        leave_list =[{'hour':18,'min_start':2,'min_end':38},
+        leave_list =[{'hour':18,'min_start':2,'min_end':18},
                      {'hour':11,'min_start':52,'min_end':58},]
         return self.time_verify(leave_list)
 
     # time to register OA
     def time_to_register(self):
-        register_list =[{'hour':8,'min_start':40,'min_end':58},
+        register_list =[{'hour':8,'min_start':38,'min_end':58},
                         {'hour':12,'min_start':22,'min_end':38},]
         return self.time_verify(register_list)
             
