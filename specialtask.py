@@ -9,7 +9,8 @@ class SpecialTask(object):
     
     def main(self):
         print("hello,i am special task")
-        
+        os.chdir("D:\office\message")
+        os.system("git pull git@github.com:wangjiachuan/office.git")
 
         
 
