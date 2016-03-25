@@ -7,7 +7,8 @@ import mail_crawler
 class DailyRegisterMain(object):
 
     def force(self):
-        result = self.get_mail_cmd()
+        result = "".join((list(self.get_mail_cmd()))[:-1])
+        print("force:cmd is :%s" % result)
         if result == "force register please,i will not be there":
             print("force register")
             os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -r")

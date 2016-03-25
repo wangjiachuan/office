@@ -236,9 +236,8 @@ class DailyRegister(object):
                 print("receive force feedback cmd,force feedback...")
                 text = "Internet is ok at "+str(time.localtime().tm_hour)+":"+str(time.localtime().tm_min)
                 self.send_message_by_mail(text)
-
-                
-        self.run_timer()
+            else:
+                self.run_timer()
         
 
 

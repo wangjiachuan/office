@@ -128,9 +128,6 @@ def get_mails_cmd():
         
 
 
-
-
-
 def main():
     '''
         Demon
@@ -147,6 +144,8 @@ def main():
     #获取邮件内容
     for i in elist:
         print ('主题：%s   来自：%s  内容：\n%s'%(i['subject'].encode('utf8'),i['from'].encode('utf8'),mail163.getMailMsg(i['url']).encode('utf8')))
+
+
 
 if __name__ == '__main__':
     #main()
