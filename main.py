@@ -71,7 +71,7 @@ class DailyRegisterMain(object):
                 print("no 163cmd.txt found,no deletion ")            
             print('-'*30)
             print("cycle done,start another cycle:{0}".format(i+1))
-            time.sleep(120)
+            time.sleep(60)
         a = input
 
 if __name__ == '__main__':

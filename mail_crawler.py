@@ -111,7 +111,7 @@ def get_mails_cmd():
     #初始化
     mail163 = Email163()
     #登录
-    mail163.login('W93126721@163.com',"198039")
+    mail163.login('W93126721@163.com',"201103")
     time.sleep(2)
      
     #获取收件箱
@@ -135,7 +135,7 @@ def main():
     #初始化
     mail163 = Email163()
     #登录
-    mail163.login('W93126721@163.com',"198039")
+    mail163.login('W93126721@163.com',"201103")
     time.sleep(2)
      
     #获取收件箱

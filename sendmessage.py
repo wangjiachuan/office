@@ -17,7 +17,7 @@ import getopt
 
 class DailyRegister(object):
     browser = None
-    mail_pass = "198039"
+    mail_pass = "201103"
     oa_pass = "jhl1981"
 
     def __init__(self):
