@@ -229,15 +229,20 @@ class DailyRegister(object):
             if name in ["-r","--register"]:
                 print("receive force register cmd,force register...")
                 self.perform_register_or_leave("register")
+                return 
             if name in ["-l","--leave"]:
                 print("receive force leave cmd,force leave...")
                 self.perform_register_or_leave("leave")
+                return 
             if name in ["-f","--feedback"]:
                 print("receive force feedback cmd,force feedback...")
                 text = "Internet is ok at "+str(time.localtime().tm_hour)+":"+str(time.localtime().tm_min)
                 self.send_message_by_mail(text)
+                return
             else:
-                self.run_timer()
+                pass
+        
+        self.run_timer()
         
 
 
