@@ -202,7 +202,7 @@ class DailyRegister(object):
                         {'hour':8,'min_start':25,'min_end':28},
                         {'hour':15,'min_start':1,'min_end':8},
                         {'hour':16,'min_start':1,'min_end':8},
-                        {'hour':17,'min_start':1,'min_end':38},
+                        {'hour':17,'min_start':1,'min_end':8},
                         {'hour':20,'min_start':1,'min_end':8},
                         {'hour':21,'min_start':1,'min_end':8},
                         {'hour':22,'min_start':1,'min_end':8},]
