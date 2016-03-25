@@ -11,6 +11,7 @@ class SpecialTask(object):
         print("hello,i am special task")
         os.chdir("D:\office\message")
         os.system("git pull git@github.com:wangjiachuan/office.git")
+        os.system("cp C:\Users\nfs\*.py D:\office\message\.")
 
         
 
