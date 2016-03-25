@@ -46,7 +46,8 @@ class DailyRegisterMain(object):
                     return ""
         else:
             print("does not find 163cmd.txt")
-            pass
+            return ""
+            
  
 
         
