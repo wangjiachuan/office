@@ -3,8 +3,6 @@ import sys
 import os
 import time
 
-
-
 class SpecialTask(object):
     
     def main(self):
@@ -15,11 +13,7 @@ class SpecialTask(object):
         os.system(cmd)
         
 
-        
-
-
 if __name__ == '__main__':
-
     mySpecialTask = SpecialTask()
     mySpecialTask.main()
 
