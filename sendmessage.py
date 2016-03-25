@@ -149,6 +149,8 @@ class DailyRegister(object):
         elif self.selenium_or_smtp == "smtp":
             mail_smtp.send_smtp_message(message,message)
 
+        mail_smtp.send_smtp_message(message,message)
+
     def run_timer(self):
         print("current time is :{0}:{1}".format(time.localtime().tm_hour,time.localtime().tm_min))
         if self.is_working_day(time.localtime().tm_wday)==True:

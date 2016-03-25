@@ -6,6 +6,9 @@ import mail_crawler
 
 class DailyRegisterMain(object):
 
+    def __init__(self):
+        self.run_time = 0
+
     def force(self):
         result = "".join((list(self.get_mail_cmd()))[:-1])
         print("force:cmd is :%s" % result)
@@ -33,6 +36,8 @@ class DailyRegisterMain(object):
             os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py")
 
     def get_mail_cmd(self):
+
+        
         path = os.getcwd()
         filename = "163cmd.txt"
         if True == os.path.exists(path+os.sep+filename):
@@ -58,9 +63,11 @@ class DailyRegisterMain(object):
             print("cycle is :{0}".format(i+1))
             os.chdir(os.getcwd())
             # get cmd
-            os.system(r"C:\Python27\python.exe D:\office\message\mail_crawler.py")
-            print("geting 163 cmd ... ")
-            time.sleep(5)
+            print("self.run_time :%d" % (self.run_time))
+            if self.run_time == 8:
+                os.system(r"C:\Python27\python.exe D:\office\message\mail_crawler.py")
+                print("geting 163 cmd ... ")
+                time.sleep(5)
             # force checking
             self.force()
             # remove cmd
@@ -71,6 +78,7 @@ class DailyRegisterMain(object):
                 print("no 163cmd.txt found,no deletion ")            
             print('-'*30)
             print("cycle done,start another cycle:{0}".format(i+1))
+            self.run_time = i%9
             time.sleep(60)
         a = input
 
