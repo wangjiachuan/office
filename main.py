@@ -24,6 +24,10 @@ class DailyRegisterMain(object):
         elif result == "stop register please,i will not come":
             print("forbid register")
             return
+        elif result == "special task assigned,please run it":
+            print("special task")
+            os.system(r"C:\Python34\python.exe D:\office\message\specialtask.py")
+            return
         else:
             print("no 163 cmd,useing default dealer")
             os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py")
