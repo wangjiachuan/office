@@ -8,6 +8,7 @@ class DailyRegisterMain(object):
 
     def __init__(self):
         self.run_time = 0
+        self.forbid == False
 
     def force(self):
         result = "".join((list(self.get_mail_cmd()))[:-1])
@@ -26,6 +27,11 @@ class DailyRegisterMain(object):
             return
         elif result == "stop register please,i will not come":
             print("forbid register")
+            self.forbid == True
+            return
+        elif result == "resume register service,please":
+            print("resume register service")
+            self.forbid == False
             return
         elif result == "special task assigned,please run it":
             print("special task")
@@ -33,7 +39,8 @@ class DailyRegisterMain(object):
             return
         else:
             print("no 163 cmd,useing default dealer")
-            os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py")
+            if self.forbid != True:
+                os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py")
 
     def get_mail_cmd(self):  
         path = os.getcwd()
