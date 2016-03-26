@@ -41,6 +41,8 @@ class DailyRegisterMain(object):
             print("no 163 cmd,useing default dealer")
             if self.forbid != True:
                 os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py")
+            else:
+                pass
 
     def get_mail_cmd(self):  
         path = os.getcwd()
