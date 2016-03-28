@@ -243,7 +243,7 @@ class DailyRegister(object):
                 return
             else:
                 pass
-        print("test if the update function is working!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        
         self.run_timer()
         
 
