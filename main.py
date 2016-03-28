@@ -5,10 +5,11 @@ import time
 import mail_crawler
 
 class DailyRegisterMain(object):
+   
 
     def __init__(self):
         self.run_time = 0
-        self.forbid == False
+        self.forbid = False
 
     def force(self):
         result = "".join((list(self.get_mail_cmd()))[:-1])
