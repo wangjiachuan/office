@@ -26,7 +26,7 @@ class DailyRegisterMain(object):
             print("force feedback")
             os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -f")
             return
-        elif result == "stop register please,i will not come":
+        elif result == "stop register service please,i will not come":
             print("forbid register")
             self.forbid == True
             return
