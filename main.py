@@ -38,11 +38,12 @@ class DailyRegisterMain(object):
             print("special task")
             os.system(r"C:\Python34\python.exe D:\office\message\specialtask.py")
             return
-        else:
-            print("no 163 cmd,useing default dealer")
+        else:           
             if self.forbid != True:
+                print("no 163 cmd,useing default dealer")
                 os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py")
             else:
+                print("service is stoped..")
                 pass
 
     def get_mail_cmd(self):  
