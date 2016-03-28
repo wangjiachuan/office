@@ -28,11 +28,11 @@ class DailyRegisterMain(object):
             return
         elif result == "stop register service please,i will not come":
             print("forbid register")
-            self.forbid == True
+            self.forbid = True
             return
         elif result == "resume register service,please":
             print("resume register service")
-            self.forbid == False
+            self.forbid = False
             return
         elif result == "special task assigned,please run it":
             print("special task")
@@ -74,7 +74,7 @@ class DailyRegisterMain(object):
             print("self.run_time :%d" % (self.run_time))
             if self.run_time == 8:
                 os.system(r"C:\Python27\python.exe D:\office\message\mail_crawler.py")
-                print("geting 163 cmd ... ")
+                print("geting 163 cmd every 8 minutes... ")
                 time.sleep(5)
             # force checking
             self.force()
