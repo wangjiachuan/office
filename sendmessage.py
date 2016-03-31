@@ -45,7 +45,8 @@ class DailyRegister(object):
     def wait_random_time(self):     
         value1 = random.randint(1, 1000)
         value2 = random.randint(1, 800)
-        result = (value1+value2)%2
+        # wait 0,1,2,3 seconds
+        result = (value1+value2)%4
         print("wait random minutes ,{0} minutes".format(result))
         time.sleep(result*60)
 
