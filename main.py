@@ -33,6 +33,7 @@ class DailyRegisterMain(object):
         elif result == "resume register service,please":
             print("resume register service")
             self.forbid = False
+            os.system(r"C:\Python34\python.exe D:\office\message\sendmessage.py -f")
             return
         elif result == "special task assigned,please run it":
             print("special task")
