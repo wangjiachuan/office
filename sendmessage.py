@@ -14,8 +14,8 @@ import random
 import mail_smtp
 import getopt
 
-
 class DailyRegister(object):
+    '''this class is used to register'''
     browser = None
     mail_pass = "201103"
     oa_pass = "jhl1981"
