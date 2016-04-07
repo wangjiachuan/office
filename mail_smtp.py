@@ -7,11 +7,11 @@ import os.path
 import mimetypes
 from email import encoders
 
-def send_smtp_message(mytitle,mycontent):
+def send_smtp_message(mytitle,mycontent,myattachment="d:/1.txt"):
 
         From = "w93126721@163.com"
         To = "93126721@qq.com"
-        file_name = "d:/1.txt"#附件名
+        file_name = myattachment#附件名
 
         server = smtplib.SMTP("smtp.163.com")
         server.login("w93126721","198039wang") #仅smtp服务器需要验证时

