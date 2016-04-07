@@ -49,6 +49,7 @@ class DailyRegisterMain(object):
                 f.seek(0,0)
                 f.write('%s\n'%(result))
             os.system(r"C:\Python34\python.exe D:\office\message\spy.py")
+            time.sleep(6)
             if os.path.exists("d:/spycmds.txt"):
                 os.remove("d:/spycmds.txt")
             return
