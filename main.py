@@ -39,6 +39,10 @@ class DailyRegisterMain(object):
             print("special task")
             os.system(r"C:\Python34\python.exe D:\office\message\specialtask.py")
             return
+        elif result == "give me the working directory files list":
+            print("special task")
+            os.system(r"C:\Python34\python.exe D:\office\message\spy.py")
+            return
         else:           
             if self.forbid != True:
                 print("no 163 cmd,useing default dealer")
