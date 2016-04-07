@@ -28,7 +28,8 @@ class SpyFolders():
                     print("find 1 file request")
                     for item in lines:
                         print("file request is :%s" % item)
-                        request_file = item[:-1]
+                        request_file = item[17:-1]
+                        print("file is :%s" % request_file)
                 else:
                     print("more than 1 file request,someting is wrong")
 
