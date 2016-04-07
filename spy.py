@@ -1,10 +1,9 @@
+#-*- coding: utf8 -*-
 import os
+import sys
 
 class SpyFolders():
     
-    
-
-
     def get_files_list_from_dir(self,dir,ext = None):
         allfiles = []
         needExtFilter = (ext != None)
@@ -19,11 +18,17 @@ class SpyFolders():
         return allfiles
 
     def main(self):
-        os.chdir(r"d:/")
-        files = self.get_files_list_from_dir(os.getcwd(),".doc")
+        os.chdir("d:"+os.sep+"work")
+        files = self.get_files_list_from_dir(os.getcwd())
         for item in files:
             print (item)
         pass
+
+    def get_files(self):
+        os.chdir("d:"+os.sep+"work")
+        files = self.get_files_list_from_dir(os.getcwd())
+        return files
+        
 
 if __name__ == "__main__":
     runner = SpyFolders()
