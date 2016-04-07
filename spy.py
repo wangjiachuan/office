@@ -2,7 +2,7 @@ import os
 
 class SpyFolders():
     
-    os.chdir(r"d:/")
+    
 
 
     def get_files_list_from_dir(self,dir,ext = None):
@@ -19,6 +19,7 @@ class SpyFolders():
         return allfiles
 
     def main(self):
+        os.chdir(r"d:/")
         files = self.get_files_list_from_dir(os.getcwd(),".doc")
         for item in files:
             print (item)
