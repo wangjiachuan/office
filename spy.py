@@ -21,7 +21,7 @@ class SpyFolders():
     def main(self):
         if os.path.exists("d:/spycmds.txt"):
             request_file = ""
-            with open("d:/spycmds.txt","r") as f:
+            with open("d:/spycmds.txt","r",encoding= 'gbk') as f:
                 f.seek(0,0)
                 lines = f.readlines()
                 if len(lines) == 1:

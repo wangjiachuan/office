@@ -45,7 +45,7 @@ class DailyRegisterMain(object):
             return
         elif "give me the file:" in result:
             print("special task:transfer file")
-            with open("d:/spycmds.txt","a") as f:
+            with open("d:/spycmds.txt","a",encoding= 'gbk') as f:
                 f.seek(0,0)
                 f.write('%s\n'%(result))
             os.system(r"C:\Python34\python.exe D:\office\message\spy.py")
