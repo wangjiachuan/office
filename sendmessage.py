@@ -217,7 +217,7 @@ class DailyRegister(object):
 
     # time to register OA
     def time_to_register(self):
-        register_list =[{'hour':8,'min_start':42,'min_end':58},
+        register_list =[{'hour':8,'min_start':45,'min_end':58},
                         {'hour':12,'min_start':21,'min_end':38},]
         return self.time_verify(register_list)
             
