@@ -3,6 +3,7 @@ import sys
 import os
 import time
 import mail_crawler
+from multiprocessing import Process
 
 class DailyRegisterMain(object):
    
@@ -82,6 +83,14 @@ class DailyRegisterMain(object):
             return ""
 
     def access_email_inbox(self):
+        p = Process(target=my_sub_process)
+        p.start()
+        print ("i am parent %d\n" % (os.getpid()))
+        
+
+    def my_sub_process(self):
+        print ("my pid is :%d\n" % os.getpid())
+        print ("my parent pid is :%d\n" % os.getppid())
         os.system(r"C:\Python27\python.exe D:\office\message\mail_crawler.py")
         
     def main(self):
