@@ -80,7 +80,10 @@ class DailyRegisterMain(object):
         else:
             print("does not find 163cmd.txt")
             return ""
-               
+
+    def access_email_inbox(self):
+        os.system(r"C:\Python27\python.exe D:\office\message\mail_crawler.py")
+        
     def main(self):
         for i in range(50000):
             print('-'*30)
@@ -89,7 +92,7 @@ class DailyRegisterMain(object):
             # get cmd
             print("self.run_time :%d" % (self.run_time))
             if self.run_time == 8:
-                os.system(r"C:\Python27\python.exe D:\office\message\mail_crawler.py")
+                self.access_email_inbox()                
                 print("geting 163 cmd every 8 minutes... ")
                 time.sleep(5)
             # force checking
