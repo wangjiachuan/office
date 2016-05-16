@@ -83,6 +83,7 @@ class DailyRegisterMain(object):
             return ""
 
     def access_email_inbox(self):
+        time.sleep(1)
         print("geting 163 cmd every 8 minutes... ")
         p = Process(target=my_sub_process)
         p.start()
@@ -101,7 +102,7 @@ class DailyRegisterMain(object):
             os.chdir(os.getcwd())
             # get cmd
             print("self.run_time :%d" % (self.run_time))
-            if self.run_time == 8:
+            if self.run_time == 2:
                 print("access email functions call begin...")
                 self.access_email_inbox()                
                 print("access email functions call end...")
@@ -116,7 +117,7 @@ class DailyRegisterMain(object):
                 print("no 163cmd.txt found,no deletion ")            
             print('-'*30)
             print("cycle done,start another cycle:{0}".format(i+1))
-            self.run_time = i%9
+            self.run_time = i%3
             time.sleep(60)
         a = input
 
