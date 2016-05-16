@@ -89,8 +89,10 @@ class DailyRegisterMain(object):
         print ("I am parent %d" % (os.getpid()))
         print("access email functions call end...")
         time.sleep(6)
-        print ('child process status: %s' % (p.is_alive()))
-        p.terminate()
+        if p.is_alive():
+            p.terminate()
+        else:
+            pass
         print ('child process status: %s' % (p.is_alive()))
         
 
