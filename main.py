@@ -85,7 +85,7 @@ class DailyRegisterMain(object):
     def access_email_inbox(self):
         time.sleep(1)
         print("geting 163 cmd every 8 minutes... ")
-        p = Process(target=my_sub_process)
+        p = Process(target=self.my_sub_process)
         p.start()
         print ("i am parent %d\n" % (os.getpid()))
         
@@ -106,7 +106,7 @@ class DailyRegisterMain(object):
                 print("access email functions call begin...")
                 self.access_email_inbox()                
                 print("access email functions call end...")
-                time.sleep(5)
+                time.sleep(6)
             # force checking
             self.force()
             # remove cmd
