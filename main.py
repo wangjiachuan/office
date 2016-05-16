@@ -90,8 +90,8 @@ class DailyRegisterMain(object):
         print("access email functions call end...")
         time.sleep(6)
         print ('child process status: %s' % (p.is_alive()))
-        #p.join()
-        #print ('JOINED:', p, p.is_alive())
+        p.terminate()
+        print ('child process status: %s' % (p.is_alive()))
         
 
     def my_sub_process(self):
