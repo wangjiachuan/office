@@ -9,7 +9,7 @@ class DailyRegisterMain(object):
    
 
     def __init__(self):
-        self.run_time = 0
+        self.run_time = 2
         self.forbid = False
 
     def force(self):
@@ -83,17 +83,18 @@ class DailyRegisterMain(object):
             return ""
 
     def access_email_inbox(self):
-        time.sleep(1)
-        print("geting 163 cmd every 8 minutes... ")
         p = Process(target=self.my_sub_process)
         p.start()
-        print ("i am parent %d\n" % (os.getpid()))
+        print ("I am parent %d" % (os.getpid()))
         
 
     def my_sub_process(self):
-        print ("child:my pid is :%d\n" % os.getpid())
-        print ("child :my parent pid is :%d\n" % os.getppid())
+        time.sleep(1)
+        print("geting 163 cmd every 8 minutes... ")
+        print ("child:my pid is :%d" % os.getpid())
+        #print ("child :my parent pid is :%d\n" % os.getppid())
         os.system(r"C:\Python27\python.exe D:\office\message\mail_crawler.py")
+
         
     def main(self):
         for i in range(50000):
@@ -117,7 +118,7 @@ class DailyRegisterMain(object):
                 print("no 163cmd.txt found,no deletion ")            
             print('-'*30)
             print("cycle done,start another cycle:{0}".format(i+1))
-            self.run_time = i%3
+            #self.run_time = i%3
             time.sleep(60)
         a = input
 
