@@ -83,14 +83,15 @@ class DailyRegisterMain(object):
             return ""
 
     def access_email_inbox(self):
+        print("geting 163 cmd every 8 minutes... ")
         p = Process(target=my_sub_process)
         p.start()
         print ("i am parent %d\n" % (os.getpid()))
         
 
     def my_sub_process(self):
-        print ("my pid is :%d\n" % os.getpid())
-        print ("my parent pid is :%d\n" % os.getppid())
+        print ("child:my pid is :%d\n" % os.getpid())
+        print ("child :my parent pid is :%d\n" % os.getppid())
         os.system(r"C:\Python27\python.exe D:\office\message\mail_crawler.py")
         
     def main(self):
@@ -101,8 +102,9 @@ class DailyRegisterMain(object):
             # get cmd
             print("self.run_time :%d" % (self.run_time))
             if self.run_time == 8:
+                print("access email functions call begin...")
                 self.access_email_inbox()                
-                print("geting 163 cmd every 8 minutes... ")
+                print("access email functions call end...")
                 time.sleep(5)
             # force checking
             self.force()
