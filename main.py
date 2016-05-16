@@ -83,9 +83,15 @@ class DailyRegisterMain(object):
             return ""
 
     def access_email_inbox(self):
+        print("access email functions call begin...")
         p = Process(target=self.my_sub_process)
         p.start()
         print ("I am parent %d" % (os.getpid()))
+        print("access email functions call end...")
+        time.sleep(6)
+        print ('child process status: %s' % (p.is_alive()))
+        #p.join()
+        #print ('JOINED:', p, p.is_alive())
         
 
     def my_sub_process(self):
@@ -98,15 +104,13 @@ class DailyRegisterMain(object):
         
     def main(self):
         for i in range(50000):
-            print('-'*30)
+            print('='*80)
             print("cycle is :{0}".format(i+1))
             os.chdir(os.getcwd())
             # get cmd
             print("self.run_time :%d" % (self.run_time))
-            if self.run_time == 8:
-                print("access email functions call begin...")
-                self.access_email_inbox()                
-                print("access email functions call end...")
+            if self.run_time == 8:   
+                self.access_email_inbox()                    
                 time.sleep(6)
             # force checking
             self.force()
@@ -116,7 +120,7 @@ class DailyRegisterMain(object):
                 os.remove(filename)
             else:
                 print("no 163cmd.txt found,no deletion ")            
-            print('-'*30)
+            print('='*80)
             print("cycle done,start another cycle:{0}".format(i+1))
             self.run_time = i%9
             time.sleep(60)
