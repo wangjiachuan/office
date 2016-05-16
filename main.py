@@ -9,7 +9,7 @@ class DailyRegisterMain(object):
    
 
     def __init__(self):
-        self.run_time = 2
+        self.run_time = 0
         self.forbid = False
 
     def force(self):
