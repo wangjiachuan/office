@@ -107,7 +107,10 @@ class DailyRegisterMain(object):
     def main(self):
         for i in range(50000):
             print('='*80)
-            print("cycle is :{0}".format(i+1))
+            print("Cycle is :{0}".format(i+1))
+            print('='*40)
+            print("Current time is :{0}:{1}".format(time.localtime().tm_hour,time.localtime().tm_min))
+            print('='*40)
             os.chdir(os.getcwd())
             # get cmd
             print("self.run_time :%d" % (self.run_time))
