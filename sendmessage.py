@@ -212,7 +212,7 @@ class DailyRegister(object):
 
     # time to leave OA
     def time_to_leave(self):
-        leave_list =[{'hour':18,'min_start':2,'min_end':8},
+        leave_list =[{'hour':13,'min_start':42,'min_end':48},
                      {'hour':11,'min_start':48,'min_end':58},]
         return self.time_verify(leave_list)
 
